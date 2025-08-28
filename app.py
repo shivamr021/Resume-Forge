@@ -12,8 +12,8 @@ from reviewer.ai_suggestions import get_ai_suggestions
 
 # --- Core Layout and Page Configuration ---
 st.set_page_config(
-    page_title="AI Resume 360°",
-    page_icon="📄",
+    page_title="Resume Forge",
+    page_icon="🔨",
     layout="wide"
 )
 
@@ -21,7 +21,7 @@ st.set_page_config(
 def load_custom_css():
     """Reads style.css and injects it into the app."""
     try:
-        with open('assets\style.css') as f:
+        with open('assets/style.css') as f:
             st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
     except FileNotFoundError:
         st.warning("style.css not found. The app will use default styling.")
@@ -39,7 +39,7 @@ if 'analysis_results' not in st.session_state:
     st.session_state.analysis_results = {}
 
 # --- Main App Structure ---
-st.title("AI Resume 360°")
+st.title("Resume Forge")
 st.markdown("Build, review, and get AI-powered suggestions to improve your resume.")
 st.write("") # Spacer
 
