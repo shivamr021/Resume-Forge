@@ -1,0 +1,43 @@
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#                       Secrets & Credentials                 #
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+# Ignore the Streamlit secrets file. This is the most important line for you.
+/.streamlit/secrets.toml
+
+# Ignore other common credential files
+.env
+*.env
+credentials.json
+*.pem
+*.key
+
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#                   Python Virtual Environments               #
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+.venv/
+venv/
+env/
+ENV/
+
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#                 Python Cache & Bytecode Files             #
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+__pycache__/
+*.py[cod]
+*$py.class
+
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#                  IDE & Editor Configuration                 #
+# # # # # # # # # # #_# # # # # # # # # # # # # # # # # # # # #
+.vscode/
+.idea/
+
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#                   Operating System Files                    #
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+.DS_Store
+Thumbs.db
