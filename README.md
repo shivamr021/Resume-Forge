@@ -1,180 +1,131 @@
-# 🧠 AI Resume Builder + ATS Reviewer
+# 🔨 Resume Forge: AI-Powered Resume Builder & Reviewer
 
-An intelligent web app built using **Streamlit** that allows users to:
-
-1. ✅ **Build professional resumes** from structured form inputs  
-2. 📊 **Evaluate resumes against job descriptions** using ATS-style keyword scoring  
-3. 🧠 **Get personalized suggestions** to improve resumes based on missing keywords and formatting insights
+**Resume Forge** is an intelligent, all-in-one web application designed to help you build a professional, modern resume and optimize it for Applicant Tracking Systems (ATS) using a sophisticated hybrid AI model.
 
 ---
 
-## 🚀 Features
+## ✨ Key Features
 
-### 📝 Tab 1: Resume Builder
-- Dynamic multi-entry **education section** (with Add/Remove functionality)
-- Sections for **basic info, experience, projects, skills, volunteering, hobbies, certifications**
-- Bullet-point formatting support for clarity
-- Generates a **PDF resume** using ReportLab
-- PDF filename generated as `firstname_lastname_resume.pdf`
+Resume Forge is built around three core modules, providing a seamless experience from creation to optimization.
 
-### 📊 Tab 2: ATS Score Review
-- Upload your resume PDF
-- Paste job description (optional)
-- Calculates **ATS match score** based on keyword overlap
-- Handles fallback mode if JD not provided
+### 1. Dynamic Resume Builder
 
-### 🧠 Tab 3: Resume Suggestions
-- Smart analysis of resume keywords grouped by sections:
-  - ✅ Found keywords
-  - ❌ Missing keywords with actionable advice
-- Keywords shown in collapsible expanders for better readability
+* **Modern Two-Column PDF**: Generate a visually appealing, professional resume in a clean two-column layout that is easy for recruiters to read.
+* **Fully Dynamic Form**: Add or remove multiple entries for work experience, education, projects, and certifications on the fly.
+* **Comprehensive Fields**: Includes all necessary sections, from personal details and a professional summary to skills, CGPA, and project links (GitHub & Live Demo).
+* **Instant PDF Download**: Get a downloadable PDF of your resume as soon as you're done editing.
 
----
+### 2. AI-Powered ATS Review
 
-## 📁 Folder Structure
+* **Specific Job Targeting**: Paste a job description to see how well your resume aligns with the role.
+* **Local AI Scoring (Free & Fast)**: Uses a local KeyBERT and SentenceTransformer model to analyze the job description, extract the most critical skills, and perform semantic search on your resume. Provides a quantitative ATS score without any API calls.
+* **Skill Gap Analysis**: Instantly see which key skills from the job description are present on your resume and which ones are missing.
 
-```
-.
-├── builder/                    # Resume Builder logic
-│   ├── form_fields.py         # Form UI components (Basic Info, Projects, Skills etc.)
-│   ├── form_handler.py        # Main handler that calls all form sections
-│   ├── pdf_generator.py       # Resume PDF generation logic
-│   └── styles.py              # Custom CSS styling for better UI
-│
-├── reviewer/                   # Resume & JD parsing + ATS scoring
-│   ├── resume_parser.py       # Extracts text from PDF resumes
-│   ├── ats_scoring.py         # Calculates ATS score
-│   └── keyword_suggestions.py # (optional/unused)
-│
-├── insights/                   # Suggestion engine for resume improvement
-│   ├── suggestions.py         # Section-wise keyword comparison
-│   └── utils.py               # Text cleaning and resume helpers
-│
-├── app.py                     # Main Streamlit entry point
-├── requirements.txt           # Python dependencies
-└── README.md                  # Project readme (this file)
-```
+### 3. AI Career Coach
 
----
+* **General Quality Review**: Get a "Resume Quality Score" and actionable feedback on structure, clarity, and impact.
+* **In-Depth Suggestions (Powered by Google Gemini)**:
 
-## ⚙️ Installation & Run
-
-### 1. Clone the repo
-```bash
-git clone https://github.com/yourusername/resume-reviewer.git
-cd resume-reviewer
-```
-
-### 2. Create virtual environment (optional but recommended)
-```bash
-python -m venv .venv
-source .venv/bin/activate  # on Linux/macOS
-.venv\Scripts\activate     # on Windows
-```
-
-### 3. Install dependencies
-```bash
-pip install -r requirements.txt
-```
-
-### 4. Run the app
-```bash
-streamlit run app.py
-```
-
-The app will be available at `http://localhost:8501`
+  * *Overall Impression*: Strengths and weaknesses.
+  * *Alignment with Job Description*: How well your resume matches a given role.
+  * *Action Verb Analysis*: Suggestions for stronger, more impactful verbs.
+  * *Content & Clarity*: Tips to refine your descriptions and summaries.
 
 ---
 
 ## 🛠️ Tech Stack
 
-- **Python 3.10+**
-- **Streamlit** (UI framework)
-- **ReportLab** (PDF generation)
-- **scikit-learn** (keyword vectorization)
-- **fuzzywuzzy / difflib** (keyword matching logic)
-- **PyPDF2** (PDF text extraction)
+This project leverages a modern stack of Python libraries for web development, PDF generation, and machine learning.
+
+* **Framework**: [Streamlit](https://streamlit.io/)
+* **PDF Generation**: [fpdf2](https://github.com/py-pdf/fpdf2) (with full Unicode and emoji support)
+* **AI & Machine Learning**:
+
+  * Generative AI: Google Generative AI SDK (`gemini-1.5-flash-latest`)
+  * NLP & Keyword Extraction: `sentence-transformers`, `keybert`
+* **Data Visualization**: Plotly
+* **File Parsing**: PyPDF2
 
 ---
 
-## 🎯 How to Use
+## 🚀 Getting Started
 
-### Building a Resume
-1. Navigate to the **"📝 Build Resume"** tab
-2. Fill in your basic information (name, email, phone, LinkedIn, GitHub)
-3. Add education entries using the **"➕ Add Education"** button
-4. Describe your work experience with bullet points
-5. Add project details and skills
-6. Optionally fill in volunteering, hobbies, and certifications
-7. Click **"📄 Generate Resume"** to download your PDF
+Follow these steps to run the project on your local machine.
 
-### ATS Review
-1. Go to the **"📊 ATS Review"** tab
-2. Upload your resume PDF
-3. Optionally paste a job description
-4. Click **"🔍 Analyze Resume"** to get your ATS score
-5. Review the keyword analysis and suggestions
+### 1. Prerequisites
 
-### Getting Suggestions
-1. Use the **"🧠 Suggestions"** tab after uploading a resume
-2. View found keywords grouped by resume sections
-3. See missing keywords with actionable advice
-4. Use the suggestions to improve your resume
+* Python 3.10 or higher
+* An active Google Gemini API key ([Get one here](https://aistudio.google.com/))
+
+### 2. Clone the Repository
+
+```bash
+git clone https://github.com/shivamr021/Resume-Forge.git
+cd Resume-Forge
+```
+
+### 3. Create a Virtual Environment
+
+```bash
+# For Windows
+python -m venv .venv
+.\.venv\Scripts\activate
+
+# For macOS/Linux
+python3 -m venv .venv
+source .venv/bin/activate
+```
+
+### 4. Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### 5. Set Up Your API Key
+
+Create a secrets file for your API key. This file is included in `.gitignore`.
+
+```bash
+mkdir .streamlit
+nano .streamlit/secrets.toml
+```
+
+Add your key:
+
+```toml
+# .streamlit/secrets.toml
+GOOGLE_API_KEY = "YOUR_API_KEY_HERE"
+```
+
+### 6. Run the Application
+
+```bash
+streamlit run app.py
+```
+
+Your application will now be running in the browser!
 
 ---
 
-## 🔮 Upcoming Features
+## 📈 Project Evolution & Learnings
 
-- [ ] Support for resume templates
-- [ ] Export as DOCX format
-- [ ] Section reordering functionality
-- [ ] Integration with LinkedIn for keyword boosting
-- [ ] Multiple resume formats and styles
-- [ ] Resume comparison tools
+This project was a journey of continuous improvement, evolving from a simple, rule-based script into a sophisticated hybrid AI application. Key milestones included:
 
----
+* **Upgrading PDF Generation**: Migrated from `fpdf` to `fpdf2` to solve Unicode and font-embedding issues, enabling a more robust and visually appealing resume design.
+* **Securing Credentials**: Implemented secure API key management using Streamlit's `secrets.toml` and a comprehensive `.gitignore` to prevent credential leaks.
+* **Implementing a Hybrid AI Model**: Transitioned from a costly, API-only approach to a more efficient hybrid model:
 
-## 🤝 Contributing
+  * Local KeyBERT for high-frequency quantitative ATS scoring.
+  * Google Gemini for low-frequency, high-value qualitative feedback.
 
-PRs and issues are welcome! Open a ticket or fork the repo and suggest improvements.
-
-### How to Contribute
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+This balance created a scalable and cost-effective solution.
 
 ---
 
-## 📄 License
-
-This project is open-source and available under the MIT License.
-
----
-
-## 👨‍💻 Author
+## 👤 Author
 
 **Shivam Rathod**
 
-- LinkedIn: [shivamrathod021](https://linkedin.com/in/shivamrathod021)
-- GitHub: [shivamr021](https://github.com/shivamr021)
-
-Built with 💡 by Shivam Rathod.
-
----
-
-## 🙏 Acknowledgments
-
-- Streamlit community for the amazing UI framework
-- ReportLab for PDF generation capabilities
-- Open-source contributors who made this project possible
-
----
-
-## 📞 Support
-
-If you have any questions or need help, feel free to:
-- Open an issue on GitHub
-- Contact me on LinkedIn
-- Star the repository if you find it helpful! ⭐
+* GitHub: [shivamr021](https://github.com/shivamr021)
+* LinkedIn: [shivamrathod021](https://www.linkedin.com/in/shivamrathod021)
